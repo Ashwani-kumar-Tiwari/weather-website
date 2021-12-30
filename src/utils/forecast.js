@@ -16,14 +16,6 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback("Location is not found", undefined);
     } else {
-      // callback(undefined, {
-      //   // description: response.body.current.weather_descriptions[0],
-      //   // temperature: response.body.current.temperature,
-      //   // feelslike: response.body.current.feelslike,
-      //   description: body.current.weather_descriptions[0],
-      //   temperature: body.current.temperature,
-      //   feelslike: body.current.feelslike,
-      // });
       callback(
         undefined,
         body.current.weather_descriptions[0] +
@@ -31,7 +23,9 @@ const forecast = (latitude, longitude, callback) => {
           body.current.temperature +
           " degress out. It feelslike " +
           body.current.feelslike +
-          " degrees."
+          " degrees out. The humidity is " +
+          body.current.humidity +
+          "%."
       );
     }
   });

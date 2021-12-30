@@ -7,36 +7,7 @@ const forecast = require("./utils/forecast");
 
 const app = express();
 
-// console.log(__dirname);
-// console.log(__filename);
-
-// Home page
-// app.get("", (req, res) => {
-//   //   res.send("Hello Express!");
-//   res.send("<h1>Hello Express!</h1>");
-// });
-
-// Help Page
-// app.get("/help", (req, res) => {
-//   //   res.send("Help page");
-//   res.send({
-//     name: "Ashwani",
-//     age: 24,
-//   });
-// });
-
-// About page
-// app.get("/about", (req, res) => {
-//   //   res.send("About page");
-//   res.send([
-//     {
-//       name: "Ashwani",
-//     },
-//     {
-//       name: "Kuldeep",
-//     },
-//   ]);
-// });
+const port = process.env.PORT || 3000
 
 // Dedine paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -140,6 +111,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is up on post 3000.");
+app.listen(port, () => {
+  console.log("Server is up on port " + port);
 });
